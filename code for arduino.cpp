@@ -13,7 +13,6 @@ const int greenLed = 13;
 long duration;
 int distance;
 
-// For red LED blinking
 unsigned long previousMillis = 0;
 const long interval = 500;
 bool redLedState = LOW;
@@ -60,9 +59,7 @@ void loop() {
   lcd_1.print(distance);
 
   
-  digitalWrite(redLed, LOW);
-  digitalWrite(yellowLed, LOW);
-  digitalWrite(greenLed, LOW);
+
 
   unsigned long currentMillis = millis();
 
@@ -71,7 +68,8 @@ void loop() {
     lcd_1.print("Very Close!    ");  
     tone(buzzerPin, 1000);
 
-    
+    digitalWrite(yellowLed, LOW);
+    digitalWrite(greenLed, LOW);   
     if (currentMillis - previousMillis >= interval) {
       previousMillis = currentMillis;
       redLedState = !redLedState;
@@ -85,13 +83,17 @@ void loop() {
       lcd_1.print("Getting Closer ");
       tone(buzzerPin, 500);
       digitalWrite(yellowLed, HIGH);
+      digitalWrite(redLed, LOW);
+      digitalWrite(greenLed, LOW);
     } 
     else {
       lcd_1.print("All Clear      "); 
       noTone(buzzerPin);
       digitalWrite(greenLed, HIGH);
+      digitalWrite(redLed, LOW);
+      digitalWrite(yellowLed, LOW);
     }
   }
 
-  delay(50);
+  delay(100);
 }
