@@ -109,6 +109,5 @@ This project is open-source and free to use under the MIT License.
 
 ## 👨‍🎓 Author
 
-**[Your Name]**  
-📍 School/University: *[Enter your school]*  
+**Andrey/sunfr0st** 
 📆 Date: *June 2025*
